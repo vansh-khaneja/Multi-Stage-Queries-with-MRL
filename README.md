@@ -6,9 +6,8 @@ This project implements multi-query retrieval using Matryoshka Representation Le
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
-- [Steps](#steps)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
+- [Execution](#execution)
+- [Contact](#contact)
 
 ## Introduction
 
@@ -42,27 +41,26 @@ In this project, we used Matryoshka Representation Learning embeddings for effic
 
     Follow the [Qdrant documentation](https://qdrant.tech/documentation/) to install and configure Qdrant on your system.
 
-## Major Steps
+## Execution
+1.Create a .env file and create a variable ```OPENAI_API_KEY``` storing your API key.
 
-1.Get the data for this project [here](https://run.unl.pt/bitstream/10362/135618/1/TEGI0570.pdf) or you can try with your own dataset.
 
+2.Download the dataset for this project [here](https://run.unl.pt/bitstream/10362/135618/1/TEGI0570.pdf) or you can try with your own dataset. Just change the path of the PDF here.
 
-2. Performing multi-query retrieval:
-
-    ```python
-    result = client.query_points(
-    collection_name= COLLECTION_NAME,
-    prefetch=models.Prefetch(
-        query=small_vector,
-        using="small-embedding",
-        limit=50,
-    ),
-    query=large_vector,
-    using="large-embedding",
-    limit=5,
-    )
-
+    ```sh
+    loaders = [
+    PyPDFLoader("/content/TEGI0570.pdf"),
+    ]
     ```
 
+3.Execute the ```main.py``` file by running this command.
 
+    ```sh
+    python main.py
+    ```
 
+## Contact
+
+For any questions or issues, feel free to open an issue on this repository or contact me at vanshkhaneja2004@gmail.com.
+
+Happy coding!
