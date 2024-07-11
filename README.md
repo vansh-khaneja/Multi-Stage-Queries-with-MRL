@@ -47,7 +47,7 @@ In this project, we used Matryoshka Representation Learning embeddings for effic
 
 2.Download the dataset for this project [here](https://run.unl.pt/bitstream/10362/135618/1/TEGI0570.pdf) or you can try with your own dataset. Just change the path of the PDF here.
 
-    ```sh
+    ```
     loaders = [
     PyPDFLoader("/content/TEGI0570.pdf"),
     ]
@@ -55,7 +55,7 @@ In this project, we used Matryoshka Representation Learning embeddings for effic
 
 3.Execute the ```main.py``` file by running this command.
 
-    ```sh
+    ```
     python main.py
     ```
 
