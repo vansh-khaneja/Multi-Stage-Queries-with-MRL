@@ -13,3 +13,11 @@ This project implements multi-query retrieval using Matryoshka Representation Le
 ## Introduction
 
 In this project, we leverage Matryoshka Representation Learning embeddings for efficient multi-query retrieval. The embeddings are generated using `text-embedding-3-small` and `text-embedding-3-large` models and stored in the Qdrant vector database. This approach allows for scalable and accurate retrieval of relevant information from large datasets.
+
+## Features
+
+- Multi-query retrieval with MRL embeddings
+- Supports `text-embedding-3-small` and `text-embedding-3-large` models
+- Uses Qdrant for efficient storage and retrieval of embeddings
+- Scalable and high-performance retrieval system
+
