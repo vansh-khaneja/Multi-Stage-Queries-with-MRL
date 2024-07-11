@@ -1,7 +1,7 @@
 # Multi-Stage-Queries-with-MRL
 This project implements multi-query retrieval using Matryoshka Representation Learning (MRL) embeddings with `text-embedding-3-small` and `text-embedding-3-large`. The embeddings are stored and queried using the [Qdrant](https://qdrant.tech/) vector database. To learn more about the project please refer this [article](link).
 
-![Alt Text - description of the image](https://github.com/vansh-khaneja/Chat-Multiple-Docs-Indexify/blob/main/sample%20outputs/output1.png?raw=true)
+![Alt Text - description of the image](https://github.com/vansh-khaneja/Multi-Stage-Queries-with-MRL/blob/main/image/img1.png)
 
 
 ## Table of Contents
