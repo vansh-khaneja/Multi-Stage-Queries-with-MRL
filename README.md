@@ -57,8 +57,11 @@ In this project, we used Matryoshka Representation Learning embeddings for effic
 ```
 
 
-3.Execute the ```main.py``` file by running this command.
+3.Execute the ```main.py``` file by running this command in terminal.
 
+```sh
+    python main.py
+```
 
 
 ## Contact
