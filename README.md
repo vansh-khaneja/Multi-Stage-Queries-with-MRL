@@ -6,19 +6,19 @@ This project implements multi-query retrieval using Matryoshka Representation Le
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Steps](#steps)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 
 ## Introduction
 
-In this project, we leverage Matryoshka Representation Learning embeddings for efficient multi-query retrieval. The embeddings are generated using `text-embedding-3-small` and `text-embedding-3-large` models and stored in the Qdrant vector database. This approach allows for scalable and accurate retrieval of relevant information from large datasets.
+In this project, we used Matryoshka Representation Learning embeddings for efficient multi-query retrieval. The embeddings are generated using `text-embedding-3-small` and `text-embedding-3-large` models and stored in the Qdrant vector database. This approach allows for scalable and accurate retrieval of relevant information from large datasets.
 
 ## Features
 
-- Multi-query retrieval with MRL embeddings
+- Fast and efficient way for data retrieval
 - Supports `text-embedding-3-small` and `text-embedding-3-large` models
-- Uses Qdrant for efficient storage and retrieval of embeddings
+- Two stage retrieval for better searching
 - Scalable and high-performance retrieval system
 
 ## Installation
@@ -26,8 +26,8 @@ In this project, we leverage Matryoshka Representation Learning embeddings for e
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/vansh-khaneja/Multi-Stage-Queries-with-MRL
+    cd Multi-Stage-Queries-with-MRL
     ```
 
 2. Set up the Python environment and install dependencies:
@@ -42,40 +42,27 @@ In this project, we leverage Matryoshka Representation Learning embeddings for e
 
     Follow the [Qdrant documentation](https://qdrant.tech/documentation/) to install and configure Qdrant on your system.
 
-## Usage
+## Major Steps
 
-1. Prepare your data and generate embeddings using the `text-embedding-3` models.
+1.Get the data for this project [here](https://run.unl.pt/bitstream/10362/135618/1/TEGI0570.pdf) or you can try with your own dataset.
 
-2. Store the embeddings in Qdrant:
 
-    ```python
-    from qdrant_client import QdrantClient
-    from your_project.embedding import generate_embeddings
-
-    client = QdrantClient("http://localhost:6333")
-    embeddings = generate_embeddings(data)
-    client.upsert(embeddings)
-    ```
-
-3. Perform multi-query retrieval:
+2. Performing multi-query retrieval:
 
     ```python
-    from your_project.retrieval import multi_query_retrieval
+    result = client.query_points(
+    collection_name= COLLECTION_NAME,
+    prefetch=models.Prefetch(
+        query=small_vector,
+        using="small-embedding",
+        limit=50,
+    ),
+    query=large_vector,
+    using="large-embedding",
+    limit=5,
+    )
 
-    results = multi_query_retrieval(client, queries)
-    for result in results:
-        print(result)
     ```
 
-## Configuration
 
-Configuration options can be set in the `config.py` file. This includes settings for the embedding models, Qdrant connection, and other parameters.
 
-```python
-# config.py
-
-QDRANT_HOST = 'localhost'
-QDRANT_PORT = 6333
-
-EMBEDDING_MODEL_SMALL = 'text-embedding-3-small'
-EMBEDDING_MODEL_LARGE = 'text-embedding-3-large'
